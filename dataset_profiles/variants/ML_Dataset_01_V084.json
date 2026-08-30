@@ -1,0 +1,350 @@
+{
+    "profile_version": "1.0",
+    "dataset_id": "ML_Dataset_01_V084",
+    "dataset_file": "ML_Dataset_01_V084.csv",
+    "dataset_facts": {
+        "rows": 1800,
+        "columns": 18,
+        "missing_values": 0,
+        "duplicate_rows": 0,
+        "numeric_variables": [
+            "Age",
+            "Education_Years",
+            "Tenure_Years",
+            "Years_Current_Role",
+            "Career_Experience",
+            "Base_Salary_Lakh",
+            "Benefits_Value_Lakh",
+            "Annual_Bonus_Lakh",
+            "Compensation_Band",
+            "Training_Hours",
+            "Job_Satisfaction",
+            "Manager_Support",
+            "Workload_Index",
+            "Absenteeism_Days",
+            "Projects_Completed",
+            "Remote_Work_Days",
+            "Performance_Score"
+        ],
+        "categorical_variables": [
+            "Department"
+        ]
+    },
+    "analysis_design": {
+        "diagnostic_predictors": [
+            "Age",
+            "Education_Years",
+            "Tenure_Years",
+            "Years_Current_Role",
+            "Career_Experience",
+            "Base_Salary_Lakh",
+            "Benefits_Value_Lakh",
+            "Annual_Bonus_Lakh",
+            "Training_Hours",
+            "Job_Satisfaction",
+            "Manager_Support",
+            "Workload_Index",
+            "Absenteeism_Days",
+            "Projects_Completed",
+            "Remote_Work_Days"
+        ],
+        "excluded_from_predictor_diagnostics": [
+            "Performance_Score"
+        ]
+    },
+    "hidden_characteristics": {
+        "multicollinearity_present": true,
+        "correlation_threshold_flag": 0.8,
+        "vif_threshold_flag": 5.0
+    },
+    "reference_results": {
+        "top_correlations": [
+            {
+                "variable_1": "Base_Salary_Lakh",
+                "variable_2": "Annual_Bonus_Lakh",
+                "absolute_correlation": 0.88254
+            },
+            {
+                "variable_1": "Benefits_Value_Lakh",
+                "variable_2": "Annual_Bonus_Lakh",
+                "absolute_correlation": 0.878708
+            },
+            {
+                "variable_1": "Base_Salary_Lakh",
+                "variable_2": "Benefits_Value_Lakh",
+                "absolute_correlation": 0.878649
+            },
+            {
+                "variable_1": "Tenure_Years",
+                "variable_2": "Years_Current_Role",
+                "absolute_correlation": 0.829516
+            },
+            {
+                "variable_1": "Tenure_Years",
+                "variable_2": "Career_Experience",
+                "absolute_correlation": 0.828502
+            },
+            {
+                "variable_1": "Years_Current_Role",
+                "variable_2": "Career_Experience",
+                "absolute_correlation": 0.826548
+            },
+            {
+                "variable_1": "Training_Hours",
+                "variable_2": "Projects_Completed",
+                "absolute_correlation": 0.3338
+            },
+            {
+                "variable_1": "Tenure_Years",
+                "variable_2": "Projects_Completed",
+                "absolute_correlation": 0.148983
+            },
+            {
+                "variable_1": "Years_Current_Role",
+                "variable_2": "Projects_Completed",
+                "absolute_correlation": 0.125944
+            },
+            {
+                "variable_1": "Career_Experience",
+                "variable_2": "Projects_Completed",
+                "absolute_correlation": 0.12027
+            }
+        ],
+        "vif": [
+            {
+                "variable": "Annual_Bonus_Lakh",
+                "vif": 5.771087
+            },
+            {
+                "variable": "Base_Salary_Lakh",
+                "vif": 5.755839
+            },
+            {
+                "variable": "Benefits_Value_Lakh",
+                "vif": 5.610605
+            },
+            {
+                "variable": "Tenure_Years",
+                "vif": 4.084688
+            },
+            {
+                "variable": "Years_Current_Role",
+                "vif": 4.030175
+            },
+            {
+                "variable": "Career_Experience",
+                "vif": 4.001615
+            },
+            {
+                "variable": "Projects_Completed",
+                "vif": 1.161398
+            },
+            {
+                "variable": "Training_Hours",
+                "vif": 1.134516
+            },
+            {
+                "variable": "Job_Satisfaction",
+                "vif": 1.010545
+            },
+            {
+                "variable": "Education_Years",
+                "vif": 1.008825
+            },
+            {
+                "variable": "Age",
+                "vif": 1.008474
+            },
+            {
+                "variable": "Absenteeism_Days",
+                "vif": 1.006732
+            },
+            {
+                "variable": "Manager_Support",
+                "vif": 1.00506
+            },
+            {
+                "variable": "Workload_Index",
+                "vif": 1.004646
+            },
+            {
+                "variable": "Remote_Work_Days",
+                "vif": 1.003406
+            }
+        ]
+    },
+    "evaluation_rules": {
+        "verify_dataset_dimensions": true,
+        "verify_missing_values": true,
+        "verify_correlations": true,
+        "verify_vif": true,
+        "correlation_tolerance": 0.01,
+        "vif_tolerance": 0.1
+    },
+    "dimensionality_reduction": {
+        "eligible_predictors": [
+            "Age",
+            "Education_Years",
+            "Tenure_Years",
+            "Years_Current_Role",
+            "Career_Experience",
+            "Base_Salary_Lakh",
+            "Benefits_Value_Lakh",
+            "Annual_Bonus_Lakh",
+            "Training_Hours",
+            "Job_Satisfaction",
+            "Manager_Support",
+            "Workload_Index",
+            "Absenteeism_Days",
+            "Projects_Completed",
+            "Remote_Work_Days"
+        ],
+        "original_dimensions": 15,
+        "excluded_variables": {
+            "target": "Performance_Score",
+            "categorical": "Department",
+            "ordinal": "Compensation_Band"
+        },
+        "standardize_before_analysis": true,
+        "allowed_methods": [
+            "PCA",
+            "Factor Analysis",
+            "Other"
+        ]
+    },
+    "dimensionality_reduction_reference": {
+        "pca": {
+            "method": "StandardScaler + PCA",
+            "eigenvalues": [
+                2.8405,
+                2.6263,
+                1.3222,
+                1.0664,
+                1.0468,
+                1.0228,
+                0.9933,
+                0.9788,
+                0.9495,
+                0.9404,
+                0.6411,
+                0.1732,
+                0.1694,
+                0.1213,
+                0.1164
+            ],
+            "explained_variance_percent": [
+                18.93,
+                17.5,
+                8.81,
+                7.11,
+                6.97,
+                6.81,
+                6.62,
+                6.52,
+                6.33,
+                6.27,
+                4.27,
+                1.15,
+                1.13,
+                0.81,
+                0.78
+            ],
+            "cumulative_variance_percent": [
+                18.93,
+                36.43,
+                45.24,
+                52.34,
+                59.31,
+                66.13,
+                72.75,
+                79.27,
+                85.6,
+                91.86,
+                96.13,
+                97.29,
+                98.42,
+                99.22,
+                100.0
+            ]
+        },
+        "factor_analysis": {
+            "kmo": 0.7612,
+            "bartlett_chi_square": 10690.94,
+            "bartlett_df": 105,
+            "bartlett_p_value_less_than": 0.001
+        }
+    },
+    "dimensionality_reduction_evaluation": {
+        "verify_original_dimensions": true,
+        "verify_pca_variance": true,
+        "verify_factor_analysis_kmo": true,
+        "verify_factor_analysis_bartlett": true,
+        "review_method_choice": true,
+        "review_component_factor_selection": true,
+        "review_selection_criterion": true,
+        "review_justification": true,
+        "do_not_enforce_single_component_count": true,
+        "do_not_enforce_single_factor_count": true,
+        "pca_variance_tolerance": 0.5,
+        "kmo_tolerance": 0.02,
+        "bartlett_chi_square_tolerance": 50.0
+    },
+    "clustering_reference": {
+        "eligible_predictors": [
+            "Age",
+            "Education_Years",
+            "Tenure_Years",
+            "Years_Current_Role",
+            "Career_Experience",
+            "Base_Salary_Lakh",
+            "Benefits_Value_Lakh",
+            "Annual_Bonus_Lakh",
+            "Training_Hours",
+            "Job_Satisfaction",
+            "Manager_Support",
+            "Workload_Index",
+            "Absenteeism_Days",
+            "Projects_Completed",
+            "Remote_Work_Days"
+        ],
+        "standardize_before_clustering": true,
+        "k_range": [
+            2,
+            8
+        ],
+        "kmeans_reference": {
+            "random_state": 42,
+            "n_init": 10,
+            "silhouette_scores": {
+                "2": 0.123926,
+                "3": 0.11966,
+                "4": 0.092699,
+                "5": 0.080412,
+                "6": 0.069291,
+                "7": 0.065161,
+                "8": 0.063925
+            }
+        },
+        "hierarchical_ward_reference": {
+            "silhouette_scores": {
+                "2": 0.139311,
+                "3": 0.093267,
+                "4": 0.08063,
+                "5": 0.038312,
+                "6": 0.035042,
+                "7": 0.031734,
+                "8": 0.027125
+            }
+        }
+    },
+    "clustering_evaluation": {
+        "verify_validation_score": true,
+        "silhouette_tolerance": 0.02,
+        "review_method_choice": true,
+        "review_number_of_clusters": true,
+        "review_distance_measure": true,
+        "review_selection_criterion": true,
+        "review_cluster_interpretation": true,
+        "review_business_interpretation": true
+    }
+}

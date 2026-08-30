@@ -1,0 +1,1455 @@
+{
+  "version": "1.0",
+  "questions": [
+    {
+      "Question_ID": "C01",
+      "Question_Family_ID": "C01",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "Banking",
+      "Difficulty": "Easy",
+      "Response_Type": "Single",
+      "Question_Type": "Confusion Matrix",
+      "Visual_Type": "Confusion Matrix",
+      "Question_Text": "A bank predicts whether a loan applicant will default. Positive class = Default. What is recall for the positive class?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "73%"
+        },
+        {
+          "Option_ID": "B",
+          "Text": "80%"
+        },
+        {
+          "Option_ID": "C",
+          "Text": "85%"
+        },
+        {
+          "Option_ID": "D",
+          "Text": "89%"
+        }
+      ],
+      "Correct_Response": [
+        "B"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C02",
+      "Question_Family_ID": "C02",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "E-commerce",
+      "Difficulty": "Easy",
+      "Response_Type": "Multi",
+      "Question_Type": "Business Scenario",
+      "Visual_Type": "",
+      "Question_Text": "An online retailer predicts whether a visitor will purchase. Positive class = Purchase. The marketing team says: Missing a customer who would actually purchase is more costly than contacting a customer who ultimately does not purchase. Which of the following statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Recall should be an important consideration."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "False negatives deserve particular attention."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Accuracy alone may be insufficient."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Precision has no relevance whatsoever."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "C"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C03",
+      "Question_Family_ID": "C03",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "Telecom",
+      "Difficulty": "Easy",
+      "Response_Type": "Single",
+      "Question_Type": "Class Imbalance",
+      "Visual_Type": "",
+      "Question_Text": "A telecom company predicts customer churn. Positive class = Churn. Only 6% of customers actually churn. A model predicts No Churn for every customer. Which conclusion is most reasonable?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "The model may have high accuracy but little practical value."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "The model must have 94% recall."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "The model has successfully solved the churn problem."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "The model must have an AUC of 0.94."
+        }
+      ],
+      "Correct_Response": [
+        "A"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C04",
+      "Question_Family_ID": "C04",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "Manufacturing",
+      "Difficulty": "Easy",
+      "Response_Type": "Single",
+      "Question_Type": "Probability",
+      "Visual_Type": "Probability",
+      "Question_Text": "A manufacturing model predicts whether a component will fail quality inspection. Positive class = Fail. Predicted probability of failure = 0.73. Classification threshold = 0.50. What classification would normally be produced?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Fail"
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Pass"
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Cannot be determined"
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Regression prediction"
+        }
+      ],
+      "Correct_Response": [
+        "A"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C05",
+      "Question_Family_ID": "C05",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "Travel",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Threshold",
+      "Visual_Type": "",
+      "Question_Text": "A hotel chain predicts whether a booking will be cancelled. Positive class = Cancellation. The classification threshold is reduced from 0.50 to 0.30. Which of the following statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "More bookings will generally be classified as likely cancellations."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Recall may increase."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Precision may decrease."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "The underlying model coefficients automatically change."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "C"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C06",
+      "Question_Family_ID": "C06",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "Pharmaceutical",
+      "Difficulty": "Moderate",
+      "Response_Type": "Single",
+      "Question_Type": "Threshold",
+      "Visual_Type": "",
+      "Question_Text": "A pharmaceutical company predicts whether a patient belongs to a high-monitoring-risk group. Positive class = High risk. The medical team says: We would rather investigate some additional low-risk patients than miss a genuinely high-risk patient. Which action is most consistent with this objective?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Lower the classification threshold."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Raise the classification threshold."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Remove the positive class."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Optimise only for accuracy."
+        }
+      ],
+      "Correct_Response": [
+        "A"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C07",
+      "Question_Family_ID": "C07",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "Advertising",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Model Comparison",
+      "Visual_Type": "",
+      "Question_Text": "Positive class = Customer responds to campaign. Model A: Accuracy 91%, Precision 86%, Recall 44%. Model B: Accuracy 87%, Precision 67%, Recall 72%. The marketing team wants to identify as many genuinely responsive customers as possible. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Model B has higher recall."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Model A has higher precision."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Model A must be selected because its accuracy is higher."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "The cost of contacting non-responsive customers should also be considered."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C08",
+      "Question_Family_ID": "C08",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "Cybersecurity",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "ROC Curve",
+      "Visual_Type": "ROC Curve",
+      "Question_Text": "A ROC graph is displayed showing Model B's curve consistently above Model A's curve. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Model B has better discrimination over the displayed range."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "ROC-AUC can summarise discrimination across thresholds."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Model B must have higher accuracy at every threshold."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "The final operating threshold should still consider business consequences."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C10",
+      "Question_Family_ID": "C10",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "Banking",
+      "Difficulty": "Difficult",
+      "Response_Type": "Multi",
+      "Question_Type": "Fraud Model",
+      "Visual_Type": "",
+      "Question_Text": "A fraud-detection model produces: Positive class = Fraud; Accuracy = 94%; Precision = 91%; Recall = 38%. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "The model may be missing a substantial number of fraudulent transactions."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "High accuracy does not eliminate concern about recall."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "The model necessarily has poor specificity."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "The classification threshold could be investigated."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C11",
+      "Question_Family_ID": "C11",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "Supply Chain",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Train/Test",
+      "Visual_Type": "",
+      "Question_Text": "A logistics company predicts whether a shipment will arrive late. Positive class = Late. Training accuracy = 97%, test accuracy = 81%, training recall = 95%, test recall = 62%. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Overfitting is a possible explanation."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Generalisation is a concern."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Training performance alone is sufficient for deployment."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Unseen-data performance should influence model selection."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C13",
+      "Question_Family_ID": "C13",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "Healthcare",
+      "Difficulty": "Difficult",
+      "Response_Type": "Multi",
+      "Question_Type": "ROC + Business",
+      "Visual_Type": "",
+      "Question_Text": "A diagnostic model has ROC-AUC = 0.91. At its current threshold, however, precision is relatively low. Positive class = Disease present. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "AUC and precision measure different aspects of performance."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "The operating threshold matters."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "AUC of 0.91 automatically means the model is ready for deployment."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "The consequences of false positives and false negatives should be considered."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C14",
+      "Question_Family_ID": "C14",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "HR",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Data Leakage",
+      "Visual_Type": "",
+      "Question_Text": "A company predicts employee attrition. Positive class = Employee leaves within the next six months. Exit_Interview_Completed is recorded after resignation. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "The feature may create data leakage."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "It could make apparent model performance unrealistically high."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Predictor availability at the time of prediction should be examined."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "High test accuracy would prove the feature is legitimate."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "C"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C15",
+      "Question_Family_ID": "C15",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "Retail",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Precision/Recall Table",
+      "Visual_Type": "",
+      "Question_Text": "An online retailer compares two purchase-prediction models. Positive class = Purchase. Model A: Precision 0.81, Recall 0.48. Model B: Precision 0.63, Recall 0.79. The company has enough promotional budget to contact additional customers and is more concerned about missing potential buyers. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Model B identifies a larger proportion of actual purchasers."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Model A is more precise among customers it identifies as purchasers."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Model B should automatically be rejected because its precision is lower."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "The business objective favours giving greater attention to recall."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "C16",
+      "Question_Family_ID": "C16",
+      "Variant_ID": "V01",
+      "Topic": "Classification",
+      "Business_Domain": "Manufacturing",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Confusion Matrix",
+      "Visual_Type": "Confusion Matrix",
+      "Question_Text": "A quality-control model identifies defective products. Positive class = Defective. Confusion matrix: Actual Defective predicted Defective = 95; Actual Defective predicted Good = 5; Actual Good predicted Defective = 20; Actual Good predicted Good = 180. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "The model's recall for defects is very high."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Five defective products were missed."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Every product predicted defective is actually defective."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "False positives still occur."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R01",
+      "Question_Family_ID": "R01",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "Retail",
+      "Difficulty": "Easy",
+      "Response_Type": "Single",
+      "Question_Type": "MAE",
+      "Visual_Type": "",
+      "Question_Text": "An e-commerce company predicts the value of a customer's next order. MAE = ₹420. Which interpretation is most appropriate?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "The average absolute prediction error is approximately ₹420."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Every prediction differs from reality by exactly ₹420."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "The model explains 420% of the variation."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "42% of predictions are incorrect."
+        }
+      ],
+      "Correct_Response": [
+        "A"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R02",
+      "Question_Family_ID": "R02",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "Manufacturing",
+      "Difficulty": "Easy",
+      "Response_Type": "Single",
+      "Question_Type": "RMSE",
+      "Visual_Type": "",
+      "Question_Text": "Which metric gives greater emphasis to unusually large prediction errors because the errors are squared?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "MAE"
+        },
+        {
+          "Option_ID": "B",
+          "Text": "RMSE"
+        },
+        {
+          "Option_ID": "C",
+          "Text": "R²"
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Adjusted R²"
+        }
+      ],
+      "Correct_Response": [
+        "B"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R03",
+      "Question_Family_ID": "R03",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "Real Estate",
+      "Difficulty": "Easy",
+      "Response_Type": "Multi",
+      "Question_Type": "Model Output",
+      "Visual_Type": "",
+      "Question_Text": "A property-price model produces R² = 0.78 and Test RMSE = ₹6.2 lakh. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "R² is not the percentage of predictions that are correct."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "RMSE provides information about prediction error magnitude."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "R² = 0.78 guarantees accurate predictions for future properties."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Both R² and prediction-error measures can be useful."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R04",
+      "Question_Family_ID": "R04",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "Sports",
+      "Difficulty": "Easy",
+      "Response_Type": "Single",
+      "Question_Type": "Calculation",
+      "Visual_Type": "",
+      "Question_Text": "A model predicts that a player will score 18 points. Actual score = 25 points. Using Error = Actual − Predicted, what is the error?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "+7"
+        },
+        {
+          "Option_ID": "B",
+          "Text": "−7"
+        },
+        {
+          "Option_ID": "C",
+          "Text": "+43"
+        },
+        {
+          "Option_ID": "D",
+          "Text": "−43"
+        }
+      ],
+      "Correct_Response": [
+        "A"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R05",
+      "Question_Family_ID": "R05",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "FMCG",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Model Comparison",
+      "Visual_Type": "",
+      "Question_Text": "Model A has RMSE 7.2 and MAE 3.8. Model B has RMSE 5.1 and MAE 4.0. The company is particularly concerned about occasional very large forecasting errors. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "RMSE deserves particular attention."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Model B has lower RMSE."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Model A has lower MAE."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Model A must therefore be selected."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "C"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R06",
+      "Question_Family_ID": "R06",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "Manufacturing",
+      "Difficulty": "Moderate",
+      "Response_Type": "Single",
+      "Question_Type": "Actual-vs-Predicted Graph",
+      "Visual_Type": "Actual-vs-Predicted Graph",
+      "Question_Text": "A graph of actual versus predicted production volume shows predictions increasingly below the diagonal as production volume increases. What does this suggest?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "The model tends to underpredict high production volumes."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "The model tends to overpredict high production volumes."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "The model predicts high volumes perfectly."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Multicollinearity has been established."
+        }
+      ],
+      "Correct_Response": [
+        "A"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R09",
+      "Question_Family_ID": "R09",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "Travel",
+      "Difficulty": "Moderate",
+      "Response_Type": "Single",
+      "Question_Type": "Learning Curve",
+      "Visual_Type": "Learning Curve",
+      "Question_Text": "A learning-curve graph shows training error continuing to fall as model complexity increases, while validation error falls initially and then rises substantially. What does this pattern most strongly suggest?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Overfitting as model complexity increases."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Perfect generalisation."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Class imbalance."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Successful clustering."
+        }
+      ],
+      "Correct_Response": [
+        "A"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R10",
+      "Question_Family_ID": "R10",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "Telecom",
+      "Difficulty": "Difficult",
+      "Response_Type": "Multi",
+      "Question_Type": "Regularisation",
+      "Visual_Type": "",
+      "Question_Text": "Ordinary regression has Training RMSE 2.0 and Validation RMSE 8.1. Regularised regression has Training RMSE 3.5 and Validation RMSE 5.4. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Regularisation may have improved generalisation."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Higher training error does not automatically make the regularised model inferior."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Validation performance is important for model selection."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "The ordinary model must be selected because its training error is lower."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "C"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R11",
+      "Question_Family_ID": "R11",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "Energy",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Residual Evidence",
+      "Visual_Type": "Residual Evidence",
+      "Question_Text": "Two residual plots are displayed. Model A has residuals randomly scattered around zero. Model B has a pronounced curved pattern. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Model A is more consistent with an adequate linear form."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Model B suggests systematic structure remains unexplained."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Model B proves multicollinearity."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "A residual pattern can indicate model misspecification."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R12",
+      "Question_Family_ID": "R12",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "Marketing",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Model Comparison",
+      "Visual_Type": "",
+      "Question_Text": "A marketing-response model produces Model A: Test R² 0.72, Validation RMSE 4.1; Model B: Test R² 0.74, Validation RMSE 4.6. Model B uses five additional predictors. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Model B's higher R² does not automatically make it preferable."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Model A has better validation RMSE."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Additional predictors should be justified by out-of-sample evidence and business value."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Model B must be selected because its R² is higher."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "C"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R13",
+      "Question_Family_ID": "R13",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "Banking",
+      "Difficulty": "Difficult",
+      "Response_Type": "Multi",
+      "Question_Type": "Coefficients",
+      "Visual_Type": "",
+      "Question_Text": "A credit-risk regression model predicts credit-loss amount. Coefficients: Income +0.42; Debt-to-Income Ratio −0.87; Credit Utilisation +0.61. All predictors are measured on their original scales. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Holding other predictors constant, a one-unit increase in Income is associated with a 0.42-unit increase in predicted credit loss."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "A coefficient sign indicates the direction of association, conditional on the model."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Coefficient magnitude alone tells us which variable is most important in all circumstances."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Coefficients should be interpreted together with units and scale."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R14",
+      "Question_Family_ID": "R14",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "Hospitality",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Model Table",
+      "Visual_Type": "",
+      "Question_Text": "A hotel predicts nightly room demand. Model A: Train RMSE 3.1, Test RMSE 9.2. Model B: Train RMSE 5.2, Test RMSE 6.0. Model C: Train RMSE 6.1, Test RMSE 6.4. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Model B has the lowest test RMSE."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Model A shows a much larger train-test gap than Model B."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Model A should automatically be selected because its training RMSE is lowest."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Test performance is relevant to judging generalisation."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "R15",
+      "Question_Family_ID": "R15",
+      "Variant_ID": "V01",
+      "Topic": "Regression",
+      "Business_Domain": "Energy",
+      "Difficulty": "Moderate",
+      "Response_Type": "Single",
+      "Question_Type": "Residual Interpretation",
+      "Visual_Type": "",
+      "Question_Text": "A residual plot shows residuals mostly above zero at low fitted values and mostly below zero at high fitted values. Which interpretation is most reasonable?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "The model may systematically overpredict at higher fitted values and underpredict at lower fitted values."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "The model has perfect predictions."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "The target must be categorical."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Clustering should replace regression automatically."
+        }
+      ],
+      "Correct_Response": [
+        "A"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL01",
+      "Question_Family_ID": "CL01",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "Retail",
+      "Difficulty": "Easy",
+      "Response_Type": "Single",
+      "Question_Type": "Business Scenario",
+      "Visual_Type": "",
+      "Question_Text": "A retailer has customer data but no predefined customer segments. What is an appropriate initial use of clustering?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Identify groups of customers with similar characteristics."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Predict next month's sales."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Estimate a binary outcome."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Calculate classification accuracy."
+        }
+      ],
+      "Correct_Response": [
+        "A"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL02",
+      "Question_Family_ID": "CL02",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "E-commerce",
+      "Difficulty": "Easy",
+      "Response_Type": "Single",
+      "Question_Type": "K-means",
+      "Visual_Type": "",
+      "Question_Text": "In K-means clustering, K represents:",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Number of predictors"
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Number of observations"
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Number of clusters"
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Number of iterations"
+        }
+      ],
+      "Correct_Response": [
+        "C"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL03",
+      "Question_Family_ID": "CL03",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "FMCG",
+      "Difficulty": "Easy",
+      "Response_Type": "Multi",
+      "Question_Type": "K-means",
+      "Visual_Type": "",
+      "Question_Text": "Which statements about K-means are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "It uses distances to assign observations to clusters."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Variable scaling can affect the resulting clusters."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Cluster labels inherently have an order such as first, second and third."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "The choice of K matters."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL04",
+      "Question_Family_ID": "CL04",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "Banking",
+      "Difficulty": "Easy",
+      "Response_Type": "Single",
+      "Question_Type": "Silhouette Graph",
+      "Visual_Type": "Silhouette Graph",
+      "Question_Text": "A silhouette plot shows most observations with values close to zero. What does this generally suggest?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Weak separation or substantial overlap."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Perfectly separated clusters."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "100% classification accuracy."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "The optimal K is automatically zero."
+        }
+      ],
+      "Correct_Response": [
+        "A"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL05",
+      "Question_Family_ID": "CL05",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "Retail",
+      "Difficulty": "Moderate",
+      "Response_Type": "Single",
+      "Question_Type": "Silhouette Table",
+      "Visual_Type": "",
+      "Question_Text": "A retailer obtains: K=2 silhouette 0.48; K=3 silhouette 0.71; K=4 silhouette 0.54. Based only on silhouette score, which solution is most attractive?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "K = 2"
+        },
+        {
+          "Option_ID": "B",
+          "Text": "K = 3"
+        },
+        {
+          "Option_ID": "C",
+          "Text": "K = 4"
+        },
+        {
+          "Option_ID": "D",
+          "Text": "All are equally attractive."
+        }
+      ],
+      "Correct_Response": [
+        "B"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL06",
+      "Question_Family_ID": "CL06",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "Logistics",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Data Ranges",
+      "Visual_Type": "",
+      "Question_Text": "A logistics dataset contains Distance 5–2,000 km; Number of deliveries 1–50; Driver rating 1–5; Delay 0–300 minutes. K-means is applied without standardisation. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Variables with larger numerical scales may have greater influence on distance."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Standardisation may be appropriate."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Scaling cannot affect K-means results."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Preprocessing should be considered before interpreting the clusters."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL07",
+      "Question_Family_ID": "CL07",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "Hospitality",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Cluster Plots",
+      "Visual_Type": "Cluster Plots",
+      "Question_Text": "Three customer-segmentation plots are shown for K=2, K=3 and K=4, together with silhouette scores. The hotel specifically wants three reasonably separated and commercially interpretable segments. Which evidence should the analyst consider? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Visual separation of the clusters."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Silhouette performance."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Whether the resulting groups have meaningful business profiles."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "The fact that K=4 has more clusters."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "C"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL08",
+      "Question_Family_ID": "CL08",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "Manufacturing",
+      "Difficulty": "Moderate",
+      "Response_Type": "Single",
+      "Question_Type": "Dendrogram",
+      "Visual_Type": "Dendrogram",
+      "Question_Text": "A hierarchical-clustering dendrogram contains a large vertical gap immediately before four groups would be formed. What does that gap generally indicate?",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "A relatively large increase in dissimilarity when groups are merged."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Perfect classification accuracy."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Automatic identification of all outliers."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Regression error."
+        }
+      ],
+      "Correct_Response": [
+        "A"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL09",
+      "Question_Family_ID": "CL09",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "Supply Chain",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Ward's Method",
+      "Visual_Type": "",
+      "Question_Text": "Ward's hierarchical clustering is being used to segment suppliers. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Ward's method seeks to control increases in within-cluster variance during merging."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "A dendrogram can help examine possible cluster solutions."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "The method predicts supplier failure automatically."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Resulting clusters still require business interpretation."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL10",
+      "Question_Family_ID": "CL10",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "Advertising",
+      "Difficulty": "Difficult",
+      "Response_Type": "Multi",
+      "Question_Type": "Cluster Comparison",
+      "Visual_Type": "",
+      "Question_Text": "K=3 has silhouette 0.71 and average cluster size 1,240. K=5 has silhouette 0.66 and average cluster size 744. Management specifically wants five actionable customer segments. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "K=3 has stronger separation according to silhouette."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "K=5 should not automatically be rejected solely because its silhouette is lower."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Business interpretability can legitimately influence the choice."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "K=5 must be selected simply because management requested five segments."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "C"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL11",
+      "Question_Family_ID": "CL11",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "Sports",
+      "Difficulty": "Difficult",
+      "Response_Type": "Multi",
+      "Question_Type": "Cluster Scatterplot",
+      "Visual_Type": "Cluster Scatterplot",
+      "Question_Text": "A scatterplot contains three relatively well-separated clusters and one observation positioned almost exactly midway between two cluster centres. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "The observation may have relatively weak cluster membership."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "Its distances to competing cluster centres are relevant."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "It is necessarily an outlier."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Visual evidence should be considered alongside quantitative measures."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL12",
+      "Question_Family_ID": "CL12",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "Consumer Goods",
+      "Difficulty": "Difficult",
+      "Response_Type": "Multi",
+      "Question_Type": "Cluster Profile",
+      "Visual_Type": "",
+      "Question_Text": "A consumer-goods company obtains four clusters. Cluster A: High spend, High purchase frequency, High basket size. Cluster B: Low, Low, Low. Cluster C: High, Low, High. Cluster D: Low, High, Low. An analyst says: We have discovered four fundamentally different types of consumers. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "The statement overstates what clustering alone establishes."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "The clusters depend on the variables and preprocessing used."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "Business meaning needs to be established through interpretation and validation."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Four clusters prove that exactly four natural consumer types exist."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "C"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    },
+    {
+      "Question_ID": "CL13",
+      "Question_Family_ID": "CL13",
+      "Variant_ID": "V01",
+      "Topic": "Clustering",
+      "Business_Domain": "HR",
+      "Difficulty": "Moderate",
+      "Response_Type": "Multi",
+      "Question_Type": "Cluster Stability",
+      "Visual_Type": "",
+      "Question_Text": "An employee-segmentation analysis is repeated after removing a small proportion of observations. The cluster assignments change substantially between the two analyses. Which statements are reasonable? Select all that apply.",
+      "Options": [
+        {
+          "Option_ID": "A",
+          "Text": "Cluster stability should be investigated."
+        },
+        {
+          "Option_ID": "B",
+          "Text": "The solution may be sensitive to particular observations."
+        },
+        {
+          "Option_ID": "C",
+          "Text": "The original solution must therefore be correct."
+        },
+        {
+          "Option_ID": "D",
+          "Text": "Robustness analysis could be useful."
+        }
+      ],
+      "Correct_Response": [
+        "A",
+        "B",
+        "D"
+      ],
+      "Marks": 1,
+      "Variant_Enabled": false
+    }
+  ]
+}

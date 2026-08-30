@@ -1,0 +1,10 @@
+{
+  "Quiz_ID": "ML_QUIZ_01",
+  "Quiz_Title": "Machine Learning Business Applications — Quiz",
+  "Start_DateTime": "2026-08-28T13:00:00Z",
+  "End_DateTime": "2026-08-28T16:30:00Z",
+  "Duration_Minutes": 20,
+  "Total_Marks": 20,
+  "Status": "ACTIVE",
+  "Access_Code_Required": true
+}
