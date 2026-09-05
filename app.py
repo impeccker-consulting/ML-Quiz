@@ -755,6 +755,14 @@ meta = DATASET_META.get(base_dataset, {'title':'Individual ML Case','type':'ML'}
 st.success(f"Your assigned case: {meta['title']}")
 st.write(f"**ML problem type:** {meta['type']}")
 
+dataset_id = assigned_dataset.replace(
+    'ML_Dataset_', ''
+).replace(
+    '.csv', ''
+)
+
+st.info(f"**Your Dataset ID: {dataset_id}**")
+
 path = DATA_DIR / ('variants' if '_V' in assigned_dataset else '') / assigned_dataset
 if path.exists():
     st.download_button('Download your dataset', data=path.read_bytes(), file_name='your_assigned_dataset.csv', mime='text/csv')
