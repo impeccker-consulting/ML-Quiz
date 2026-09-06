@@ -90,12 +90,27 @@ def select_questions(qs,sap_id,quiz_id):
         for d in DIFFICULTY_TARGETS:
             pool=[q for q in qs if q["Topic"]==t and q["Difficulty"]==d]
             rng.shuffle(pool); pools[(t,d)]=pool
+        # Build the final quiz in progressive difficulty order:
+    # Questions 1–6   = Easy
+    # Questions 7–18  = Moderate
+    # Questions 19–20 = Difficult
     selected=[]
-    for key,n in allocation.items(): selected += pools[key][:n]
-    rng.shuffle(selected)
+
+    for difficulty in ("Easy", "Moderate", "Difficult"):
+        for topic in TOPIC_TARGETS:
+            n = allocation[(topic, difficulty)]
+            selected += pools[(topic, difficulty)][:n]
+
     result=[]
     for q in selected:
-        x=dict(q); x["Options"]=list(q["Options"]); rng.shuffle(x["Options"]); result.append(x)
+        x=dict(q)
+        x["Options"]=list(q["Options"])
+        rng.shuffle(x["Options"])
+        result.append(x)
+
+    if len(result) != QUESTION_COUNT:
+        raise ValueError(f"Expected {QUESTION_COUNT} questions, got {len(result)}.")
+
     return result
 
 def attempt_path(root,quiz_id,sap_id):
