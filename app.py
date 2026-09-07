@@ -498,26 +498,61 @@ if faculty_mode:
 
     st.subheader('Submission Details')
 
-    col1, col2, col3 = st.columns(3)
+    # -------------------------------------------------
+    # Recover SAP ID from submission hash
+    # -------------------------------------------------
 
-    col1.write('**Submission ID**')
-    col1.write(selected.name)
+    sap_id = 'Not available'
+    submission_hash = selected.name.split('_')[0]
 
-    col2.write('**Dataset**')
-    col2.write(
+    for row in DATASET_MAP:
+        candidate_hash = hashlib.sha256(
+            row.strip().upper().encode()
+        ).hexdigest()[:16]
+
+        if candidate_hash == submission_hash:
+            sap_id = row
+            break
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    col1.write('**SAP ID**')
+    col1.write(sap_id)
+
+    col2.write('**Submission ID**')
+    col2.write(selected.name)
+
+    col3.write('**Dataset**')
+    col3.write(
         metadata.get(
             'assigned_dataset',
             'Not available'
         )
     )
 
-    col3.write('**Submitted**')
-    col3.write(
+    col4.write('**Submitted**')
+    col4.write(
         metadata.get(
             'submitted_at',
             'Not available'
         )
     )
+
+    # -------------------------------------------------
+    # Download original submitted ZIP
+    # -------------------------------------------------
+
+    submission_zip = selected / 'submission.zip'
+
+    if submission_zip.exists():
+        st.download_button(
+            'Download Submitted ZIP',
+            data=submission_zip.read_bytes(),
+            file_name=f'{sap_id}_submission.zip',
+            mime='application/zip'
+        )
+    else:
+        st.warning('Original submitted ZIP is not available.')
 
     # -------------------------------------------------
     # Load evaluation evidence
