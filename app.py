@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 import shutil
 from validate_submission import validate_submission
 from evaluate_submission import evaluate_submission
+from faculty_scoring import score_submission
 from quiz.engine import load_bank, create_attempt, save_attempt, load_attempt, submit_attempt, is_expired, parse_iso
 from quiz.access import verify_access_code
 from quiz.reporting import build_reports, discuss_in_class, write_csv
@@ -643,38 +644,146 @@ if faculty_mode:
 
     st.table(display_rows)
         # -------------------------------------------------
+    # -------------------------------------------------
+    # Automated provisional scoring
+    # -------------------------------------------------
+
+    scoring = None
+    scoring_error = None
+
+    submission_zip = selected / 'submission.zip'
+    if submission_zip.exists():
+        try:
+            scoring = score_submission(
+                submission_zip,
+                evaluation_rows
+            )
+        except Exception as exc:
+            scoring_error = str(exc)
+    else:
+        scoring_error = 'Original submitted ZIP is not available for content scoring.'
+
+    st.divider()
+    st.subheader('Provisional Assessment')
+
+    if scoring is not None:
+        c1, c2, c3 = st.columns(3)
+        c1.metric(
+            'Provisional Score',
+            f"{scoring['provisional_score']:.1f} / 30"
+        )
+        c2.metric(
+            'Confidence',
+            scoring['confidence']
+        )
+        c3.metric(
+            'Review Priority',
+            scoring['review_priority']
+        )
+
+        st.caption(
+            'The provisional score is conservative and evidence-based. '
+            'Faculty review remains the final authority.'
+        )
+
+        rubric_rows = []
+        for component, maximum in scoring['rubric_scores'].items():
+            rubric_rows.append({
+                'Rubric component': component,
+                'Provisional marks': scoring['rubric_scores'][component],
+                'Maximum': maximum,
+            })
+        st.dataframe(
+            rubric_rows,
+            use_container_width=True,
+            hide_index=True
+        )
+
+        if scoring.get('issues'):
+            st.warning('Potential scoring deductions identified by automated evidence')
+            issue_rows = []
+            for issue in scoring['issues']:
+                issue_rows.append({
+                    'Rubric': issue['rubric'],
+                    'Category': issue['category'],
+                    'Deduction': issue['deduction'],
+                    'Observation': issue['observation'],
+                })
+            st.dataframe(
+                issue_rows,
+                use_container_width=True,
+                hide_index=True
+            )
+        else:
+            st.success('No substantive automated deduction was identified.')
+
+        if scoring.get('review_flags'):
+            st.info('Faculty review flags — these do not automatically reduce the provisional score')
+            flag_rows = []
+            for flag in scoring['review_flags']:
+                flag_rows.append({
+                    'Rubric': flag['rubric'],
+                    'Observation': flag['observation'],
+                    'Why it matters': flag['why_it_matters'],
+                    'Suggested action': flag['prescription'],
+                })
+            st.dataframe(
+                flag_rows,
+                use_container_width=True,
+                hide_index=True
+            )
+
+        with st.expander('Automated faculty comments', expanded=bool(scoring.get('issues') or scoring.get('review_flags'))):
+            automated_comments = scoring.get('faculty_comments', '').strip()
+            if automated_comments:
+                st.write(automated_comments)
+            else:
+                st.write('No automated faculty comments were generated.')
+    else:
+        st.error(
+            'Provisional scoring could not be generated for this submission.'
+        )
+        st.caption(scoring_error or 'Unknown scoring error.')
+
+    # -------------------------------------------------
     # Faculty Review
     # -------------------------------------------------
 
-    st.divider()
-    st.subheader('Faculty Review')
-
     review_file = selected / 'faculty_review.csv'
-
     existing_status = 'Pending'
     existing_notes = ''
+    existing_score = None
+    existing_feedback = ''
 
     if review_file.exists():
-
         with open(
             review_file,
             newline='',
             encoding='utf-8'
         ) as f:
-
             review_rows = list(
                 csv.DictReader(f)
             )
 
             if review_rows:
-
                 existing_status = review_rows[0].get(
                     'review_status',
                     'Pending'
                 )
-
                 existing_notes = review_rows[0].get(
                     'faculty_notes',
+                    ''
+                )
+                raw_score = review_rows[0].get(
+                    'final_score',
+                    ''
+                )
+                try:
+                    existing_score = float(raw_score)
+                except (TypeError, ValueError):
+                    existing_score = None
+                existing_feedback = review_rows[0].get(
+                    'student_feedback',
                     ''
                 )
 
@@ -688,51 +797,153 @@ if faculty_mode:
         )
     )
 
+    default_notes = existing_notes
+    if not default_notes and scoring is not None:
+        default_notes = scoring.get('faculty_comments', '')
+
     faculty_notes = st.text_area(
         'Faculty Notes',
-        value=existing_notes,
-        height=150,
-        placeholder='Enter your observations or assessment notes...'
+        value=default_notes,
+        height=180,
+        placeholder='Edit or add your faculty observations and final judgement...'
     )
+
+    default_score = existing_score
+    if default_score is None and scoring is not None:
+        default_score = float(scoring['provisional_score'])
+    if default_score is None:
+        default_score = 0.0
+
     final_score = st.number_input(
         'Final Score (/30)',
         min_value=0.0,
         max_value=30.0,
-        value=0.0,
+        value=default_score,
         step=0.5
     )
+
+    default_feedback = existing_feedback
+    if not default_feedback and scoring is not None:
+        default_feedback = scoring.get('student_feedback', '')
+
+    st.subheader('Suggested Student Feedback')
+    st.caption(
+        'This is a draft. Faculty should review/edit it before sharing with students.'
+    )
+    student_feedback = st.text_area(
+        'Student Feedback',
+        value=default_feedback,
+        height=280,
+        label_visibility='collapsed'
+    )
+
     if st.button(
         'Save Faculty Review',
         type='primary'
     ):
-
         with open(
             review_file,
             'w',
             newline='',
             encoding='utf-8'
         ) as f:
-
             writer = csv.writer(f)
-
             writer.writerow([
                 'review_status',
                 'faculty_notes',
                 'final_score',
+                'student_feedback',
                 'reviewed_at'
             ])
-
             writer.writerow([
                 review_status,
                 faculty_notes,
                 final_score,
+                student_feedback,
                 datetime.now().isoformat()
             ])
 
         st.success(
-            'Faculty review saved successfully.'
+            'Faculty review, final score and draft student feedback saved successfully.'
         )
+
+
     # -------------------------------------------------
+    # Consolidated final marks export
+    # -------------------------------------------------
+
+    st.divider()
+    st.subheader('Faculty Marks Export')
+    st.caption(
+        'Downloads one CSV containing SAP ID, final score and the saved faculty review for every evaluated submission.'
+    )
+
+    marks_rows = []
+    for folder in submissions:
+        metadata = {}
+        submission_file = folder / 'submission.csv'
+        if submission_file.exists():
+            with open(
+                submission_file,
+                newline='',
+                encoding='utf-8'
+            ) as f:
+                rows = list(csv.DictReader(f))
+                if rows:
+                    metadata = rows[0]
+
+        submission_hash = folder.name.split('_')[0]
+        sap_id_export = 'Not available'
+        for candidate in DATASET_MAP:
+            candidate_hash = hashlib.sha256(
+                candidate.strip().upper().encode()
+            ).hexdigest()[:16]
+            if candidate_hash == submission_hash:
+                sap_id_export = candidate
+                break
+
+        review_data = {}
+        review_file_export = folder / 'faculty_review.csv'
+        if review_file_export.exists():
+            with open(
+                review_file_export,
+                newline='',
+                encoding='utf-8'
+            ) as f:
+                review_rows_export = list(csv.DictReader(f))
+                if review_rows_export:
+                    review_data = review_rows_export[0]
+
+        marks_rows.append({
+            'SAP ID': sap_id_export,
+            'Dataset': metadata.get('assigned_dataset', 'Not available'),
+            'Submission ID': folder.name,
+            'Review Status': review_data.get('review_status', 'Pending'),
+            'Final Score': review_data.get('final_score', ''),
+            'Faculty Notes': review_data.get('faculty_notes', ''),
+            'Student Feedback': review_data.get('student_feedback', ''),
+            'Reviewed At': review_data.get('reviewed_at', ''),
+        })
+
+    marks_buffer = io.StringIO()
+    if marks_rows:
+        marks_writer = csv.DictWriter(
+            marks_buffer,
+            fieldnames=list(marks_rows[0].keys())
+        )
+        marks_writer.writeheader()
+        marks_writer.writerows(marks_rows)
+    else:
+        marks_buffer.write('No evaluated submissions\n')
+
+    st.download_button(
+        'Download Final Marks CSV',
+        data=marks_buffer.getvalue().encode('utf-8-sig'),
+        file_name='final_marks.csv',
+        mime='text/csv',
+        key='final_marks_csv_export'
+    )
+
     # Governance reminder
     # -------------------------------------------------
 
