@@ -7,7 +7,7 @@ from validate_submission import validate_submission
 from evaluate_submission import evaluate_submission
 from faculty_scoring import score_submission
 from quiz.engine import load_bank, create_attempt, save_attempt, load_attempt, submit_attempt, is_expired, parse_iso
-from quiz.access import verify_access_code
+from quiz.access import verify_access_code, access_code
 from quiz.reporting import build_reports, discuss_in_class, write_csv
 FACULTY_KEY = st.secrets["FACULTY_KEY"]
 
@@ -284,9 +284,49 @@ if faculty_mode:
     )
 
     if faculty_section == 'Quiz Report':
-        st.subheader('Quiz Report')
-        quiz_config = _load_quiz_config() if 'QUIZ_CONFIG_FILE' in globals() else json.load(open(BASE / 'quiz' / 'config.json', encoding='utf-8'))
+        quiz_config = _load_quiz_config()
         quiz_id = quiz_config['Quiz_ID']
+
+        st.subheader('Quiz Report')
+
+        # -------------------------------------------------
+        # Faculty-only quiz access-code export
+        # -------------------------------------------------
+
+        access_rows = []
+
+        for sap_id in sorted(DATASET_MAP):
+            access_rows.append({
+                'SAP ID': sap_id,
+                'Quiz ID': quiz_id,
+                'Access Code': access_code(
+                    sap_id,
+                    quiz_id,
+                    FACULTY_KEY
+                )
+            })
+
+        access_buffer = io.StringIO()
+        writer = csv.DictWriter(
+            access_buffer,
+            fieldnames=['SAP ID', 'Quiz ID', 'Access Code']
+        )
+        writer.writeheader()
+        writer.writerows(access_rows)
+
+        st.markdown('**Student Quiz Access Codes**')
+        st.caption(
+            'Faculty-only export. Each code is tied to the SAP ID and current Quiz ID.'
+        )
+
+        st.download_button(
+            'Download Quiz Access Codes CSV',
+            access_buffer.getvalue().encode('utf-8-sig'),
+            'ML_QUIZ_01_access_codes.csv',
+            'text/csv',
+            key='quiz_access_codes_export'
+        )
+
         reports = build_reports(BASE / 'quiz', quiz_id)
 
         if not reports['student']:
